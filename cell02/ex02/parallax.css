@@ -1,0 +1,117 @@
+/* Basic Reset and Body Styles */
+html, body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #fff; /* Default text color for parallax sections */
+    scroll-behavior: smooth; /* Optional: Smooth scrolling */
+}
+
+/* Common Styles for Parallax Sections */
+.parallax-section {
+    height: 100vh; /* Make each section fill the full viewport height */
+    background-attachment: fixed; /* This is the magic for parallax effect */
+    background-position: center; /* Center the background image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-size: cover; /* Cover the entire section */
+    display: flex; /* Use flexbox to center content */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    text-align: center;
+    position: relative; /* For overlay positioning */
+}
+
+/* Overlay for text content in parallax sections */
+.content-overlay {
+    background-color: rgba(0, 0, 0, 0.4); /* Semi-transparent black background for readability */
+    padding: 20px 40px;
+    border-radius: 10px;
+    max-width: 80%; /* Limit width for better readability on large screens */
+}
+
+.content-overlay h1 {
+    font-size: 3em;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6); /* Text shadow for better contrast */
+}
+
+.content-overlay p {
+    font-size: 1.2em;
+    line-height: 1.5;
+}
+
+/* Individual Parallax Images */
+.parallax-image-1 {
+    /* Placeholder for a scenic landscape image */
+    background-image: url('https://th.bing.com/th/id/OIP.8SZYRiAmTgWBy_H7aZx8hAHaHa?r=0&rs=1&pid=ImgDetMain');
+}
+
+.parallax-image-2 {
+    /* Placeholder for a starry night sky image */
+    background-image: url('https://i.pinimg.com/236x/32/6b/ce/326bceaf76a94dd1ee7d36d7453ec2b3.jpg');
+}
+
+/* Middle Content Section (Black Block) */
+.content-section {
+    height: 80vh; /* Adjust height as needed, less than full viewport */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    box-sizing: border-box; /* Include padding in height */
+}
+
+.black-block {
+    background-color: #1a1a1a; /* Dark background */
+    color: #f0f0f0; /* Light text color for contrast */
+}
+
+.black-block h2 {
+    font-size: 2.5em;
+    margin-bottom: 15px;
+}
+
+.black-block p {
+    font-size: 1.1em;
+    line-height: 1.6;
+    max-width: 700px;
+    margin: 0 auto; /* Center paragraph */
+}
+
+/* Basic Responsiveness for font sizes */
+@media (max-width: 768px) {
+    .content-overlay h1 {
+        font-size: 2em;
+    }
+    .content-overlay p {
+        font-size: 1em;
+    }
+    .black-block h2 {
+        font-size: 1.8em;
+    }
+    .black-block p {
+        font-size: 0.9em;
+    }
+    .content-overlay {
+        padding: 15px 25px;
+    }
+}
+
+@media (max-width: 480px) {
+    .content-overlay h1 {
+        font-size: 1.5em;
+    }
+    .content-overlay p {
+        font-size: 0.9em;
+    }
+    .black-block h2 {
+        font-size: 1.4em;
+    }
+    .black-block p {
+        font-size: 0.8em;
+    }
+    .content-overlay {
+        padding: 10px 15px;
+    }
+}

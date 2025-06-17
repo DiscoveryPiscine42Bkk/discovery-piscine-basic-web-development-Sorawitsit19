@@ -1,0 +1,175 @@
+/* General Body Styles */
+body {
+    margin: 0;
+    padding: 0; /* Remove body padding to control spacing via container */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f0f2f5; /* Light grey background for the page */
+    display: flex;
+    flex-direction: column; /* Stack title and card vertically */
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Ensure it takes full viewport height */
+    box-sizing: border-box; /* Include padding in element's total width and height */
+    /* Add the background pattern seen in the example */
+    background-image: url('https://png.pngtree.com/background/20230412/original/pngtree-natural-water-blue-mountain-green-background-picture-image_2397156.jpg'); /* Subtle diagonal line pattern */
+    background-repeat: repeat;
+    background-size: 1600px 1000px; /* Adjust size of the pattern */
+}
+
+/* Page Title Style */
+.card-page-title {
+    color: #f1eaea;
+    margin-bottom: 30px; /* Space between title and card */
+    font-size: 2.2em; /* Slightly smaller than previous */
+    text-align: center;
+    font-weight: normal; /* Example looks like normal weight */
+}
+
+/* Profile Card Container */
+.profile-card {
+    background-color: #ffffff; /* White background for the card */
+    border-radius: 8px; /* Less rounded corners as per example */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08); /* Softer shadow */
+    width: 280px; /* Fixed width for the card, adjusted slightly */
+    position: relative; /* For absolute positioning of the button */
+    overflow: hidden; /* Ensures button border-radius clips correctly */
+}
+
+/* Invisible Table Styling */
+.profile-card table {
+    width: 100%; /* Make table take full width of card */
+    border-collapse: collapse; /* Remove space between cell borders */
+    border: none; /* Make table borders invisible */
+    margin: 0; /* Remove default table margins */
+    padding: 0; /* Remove default table padding */
+}
+
+.profile-card table td.card-content-cell {
+    padding: 30px 20px 20px; /* Top, horizontal, and some bottom padding for content */
+    border: none; /* Make cell borders invisible */
+    vertical-align: top; /* Align content to the top within the cell */
+    display: flex; /* Use flexbox for inner content alignment */
+    flex-direction: column;
+    align-items: center; /* Center items horizontally within the cell */
+}
+
+
+/* Profile Picture */
+.profile-pic-wrapper {
+    margin-bottom: 15px; /* Space below picture */
+    border: none; /* Remove border */
+    padding: 0; /* Remove padding */
+    display: inline-block; /* To contain image */
+    overflow: hidden; /* Ensures image is clipped if it tries to overflow */
+    border-radius: 4px; /* Slight rounding for the image itself if needed, or none for sharp corners */
+}
+
+.profile-pic {
+    width: 200px; /* Adjusted width to match example */
+    height: auto; /* Maintain aspect ratio */
+    display: block; /* Remove extra space below image */
+    border-radius: 0; /* No border-radius for rectangular image */
+}
+
+/* User Login Text */
+.user-login {
+    font-size: 1.6em; /* Matches example size */
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 5px; /* Tighter spacing */
+}
+
+/* User Description Lines */
+.user-description-line1 {
+    font-size: 0.9em; /* Smaller font size */
+    color: #555;
+    margin-bottom: 2px; /* Very tight spacing */
+}
+
+.user-description-line2 {
+    font-size: 0.85em; /* Even smaller */
+    color: #555;
+    margin-bottom: 25px; /* Space before social icons */
+}
+
+/* Social Links Section */
+.social-links {
+    display: flex; /* Use flexbox to line up images */
+    justify-content: center; /* Center social icons horizontally */
+    gap: 10px; /* Space between icons */
+    margin-bottom: 25px; /* Space before button */
+}
+
+.social-links a {
+    text-decoration: none; /* Remove underline from social links */
+}
+
+.social-icon {
+    width: 25px; /* Size of social icons */
+    height: 25px;
+    border-radius: 50%; /* Make icons circular */
+    box-shadow: none; /* No shadow on icons */
+    /* Optional: Add a subtle transition if hover effect is desired */
+    transition: transform 0.2s ease-in-out;
+}
+
+.social-icon:hover {
+    transform: translateY(-2px); /* Subtle lift on hover */
+}
+
+/* Contact Button */
+.contact-button {
+    /* Absolute positioning to span full width and stick to bottom */
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0; /* Ensures it spans the full width */
+    
+    background-color: #000; /* Black background */
+    color: rgb(118, 188, 221); 
+    padding: 15px 0; /* Vertical padding, horizontal handled by full width */
+    border: none;
+    border-radius: 0 0 8px 8px; /* Rounded only at the bottom to match card */
+    font-size: 1.1em;
+    cursor: pointer;
+    text-align: center; /* Center the text */
+    text-decoration: none; /* Remove underline for links */
+    transition: background-color 0.3s ease;
+}
+
+.contact-button:hover {
+    background-color: #333; /* Slightly lighter black on hover */
+}
+
+/* Basic Responsiveness */
+@media (max-width: 400px) {
+    .profile-card {
+        width: 90%; /* Make card take more width on smaller screens */
+    }
+    .card-page-title {
+        font-size: 1.8em;
+        margin-bottom: 20px;
+    }
+    .profile-card table td.card-content-cell {
+        padding: 20px 15px 15px; /* Adjust padding for smaller screens */
+    }
+    .profile-pic {
+        width: 150px; /* Adjust image size for smaller screens */
+        height: auto;
+    }
+    .user-login {
+        font-size: 1.4em;
+    }
+    .user-description-line1,
+    .user-description-line2 {
+        font-size: 0.8em;
+    }
+    .social-icon {
+        width: 22px;
+        height: 22px;
+    }
+    .contact-button {
+        padding: 12px 0;
+        font-size: 1em;
+    }
+}
