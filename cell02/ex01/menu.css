@@ -1,0 +1,142 @@
+/* General Body Styles */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Full viewport height */
+    background: linear-gradient(to bottom right, #f0f2f5, #e0e5ea); /* Light gradient background */
+    margin: 0;
+    overflow: hidden; /* Prevent scrollbar from initial menu state */
+}
+
+/* Sandwich Menu Container */
+.sandwich-menu {
+    position: relative; /* For absolute positioning of content */
+    width: 300px; /* Fixed width for the sandwich */
+    perspective: 1000px; /* For 3D transformations if desired later, good practice */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15); /* Soft shadow for depth */
+    border-radius: 15px; /* Rounded corners for the entire menu area */
+    overflow: hidden; /* Hide overflowing content initially */
+}
+
+/* Sandwich Toggle (The "Top Bun" / Clickable Area) */
+.sandwich-toggle {
+    background: linear-gradient(to top, #ffcc99, #ffddaa); /* Top bun color */
+    color: #4b382e; /* Darker text for contrast */
+    padding: 20px;
+    font-size: 1.4em;
+    font-weight: bold;
+    text-align: center;
+    cursor: pointer;
+    border-bottom: 2px solid #e0b07c; /* Slight bottom edge */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 15px 15px 0 0; /* Rounded top corners */
+    transition: background 0.3s ease;
+    z-index: 2; /* Ensure it's above content when closed */
+    position: relative;
+}
+
+.sandwich-toggle:hover {
+    background: linear-gradient(to top, #ffd8b3, #ffe8cc); /* Lighter on hover */
+}
+
+.toggle-arrow {
+    font-size: 0.8em;
+    transition: transform 0.3s ease;
+}
+
+/* Sandwich Content (The "Ingredients") */
+.sandwich-content {
+    background-color: #fff; /* White background for the ingredients */
+    max-height: 0; /* Initially hidden */
+    overflow: hidden; /* Hide overflow */
+    transition: max-height 0.5s ease-out, padding 0.5s ease-out; /* Smooth transition */
+    border-radius: 0 0 15px 15px; /* Rounded bottom corners */
+    opacity: 0; /* Start invisible */
+    transform: translateY(-20px); /* Slightly move up initially */
+    transition: max-height 0.5s ease-out, opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+/* Show content on hover of the menu */
+.sandwich-menu:hover .sandwich-content {
+    max-height: 300px; /* Adjust based on total ingredient height */
+    padding: 10px 0; /* Add padding when open */
+    opacity: 1; /* Make visible */
+    transform: translateY(0); /* Move to final position */
+}
+
+/* Rotate arrow on hover */
+.sandwich-menu:hover .toggle-arrow {
+    transform: rotate(180deg);
+}
+
+/* Individual Ingredient Styles */
+.ingredient {
+    padding: 12px 25px;
+    font-size: 1em;
+    color: #333;
+    border-bottom: 1px dashed #eee; /* Dashed line to separate layers */
+    text-align: center;
+    position: relative;
+    z-index: 1; /* Below the top bun */
+}
+
+.ingredient:last-of-type {
+    border-bottom: none; /* No border for the last ingredient */
+}
+
+/* Specific Ingredient Colors (mimicking ingredients) */
+.ingredient.ham {
+    background-color: #ffc0cb; /* Light pink for ham */
+}
+
+.ingredient.cheese {
+    background-color: #ffda79; /* Yellowish for cheese */
+}
+
+.ingredient.lettuce {
+    background-color: #d1edc4; /* Light green for lettuce */
+}
+
+.ingredient.sauce {
+    background-color: #f7e1b9; /* Creamy color for sauce */
+}
+
+/* Bottom Bun */
+.bottom-bun {
+    background: linear-gradient(to bottom, #ffcc99, #ffddaa); /* Same as top bun, but inverted gradient */
+    height: 30px; /* Height of the bottom bun */
+    border-top: 2px solid #e0b07c; /* Slight top edge */
+    border-radius: 0 0 15px 15px; /* Rounded bottom corners */
+}
+
+/* Optional: Subtle animation for ingredients on hover */
+.sandwich-menu:hover .ingredient {
+    animation: ingredientSlideIn 0.5s forwards;
+}
+
+.sandwich-menu:hover .ingredient:nth-child(1) { animation-delay: 0.1s; }
+.sandwich-menu:hover .ingredient:nth-child(2) { animation-delay: 0.2s; }
+.sandwich-menu:hover .ingredient:nth-child(3) { animation-delay: 0.3s; }
+.sandwich-menu:hover .ingredient:nth-child(4) { animation-delay: 0.4s; }
+
+@keyframes ingredientSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Basic Responsiveness for smaller screens */
+@media (max-width: 400px) {
+    .sandwich-menu {
+        width: 90%; /* Make it take more width on small screens */
+    }
+}
